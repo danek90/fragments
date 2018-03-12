@@ -1,0 +1,3 @@
+# blast quiery for MLST primers
+
+blastn -query pertussis_wgMLST.fasta -strand 'plus' -subject pertussis_wgMLST.fasta -task 'blastn' -out length.txt -perc_identity 90 -qcov_hsp_perc 90 -outfmt '6 qseqid sseqid qlen length pident qstart qend sstart send'
