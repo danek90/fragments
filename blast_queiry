@@ -1,3 +1,7 @@
 # blast quiery for MLST primers
 
-blastn -query pertussis_wgMLST.fasta -strand 'plus' -subject pertussis_wgMLST.fasta -task 'blastn' -out length.txt -perc_identity 90 -qcov_hsp_perc 90 -outfmt '6 qseqid sseqid qlen length pident qstart qend sstart send'
+blastn -query bVNTR6.fasta -strand 'plus' -subject pertussis_wgMLST.fasta -task 'blastn' -out length.txt -perc_identity 90 -qcov_hsp_perc 90 -outfmt '6 qseqid sseqid qlen length pident qstart qend sstart send'
+
+for i in $(cat names.txt); do blastn -query bnSeqences/bnSEQ.fasta -subject pseudoGenesAll/*$i* -task 'blastn' -out blastOfPseudo/$i"blast.out" -perc_identity 100 -qcov_hsp_perc 100 -outfmt '6 qseqid sseqid qlen length pident qstart qend sstart send'; done
+
+blastn -query bVNTR6.fasta -subject H374miseq.fasta -task 'blastn' -out blast6.out -perc_identity 50 -qcov_hsp_perc 50 -outfmt '6 qseqid sseqid qlen length pident qstart qend sstart send'
